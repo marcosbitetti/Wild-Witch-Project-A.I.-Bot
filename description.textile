@@ -1,0 +1,10 @@
+Página do projeto Wild Witch
+http://wildwitchproject.blogspot.com
+
+Projeto no github
+http://github.com/marcosbitetti/wwp-twitter/tree
+
+Author: Marcos Augusto Bitetti
+	marcosbitetti@gmail.com
+
+Projeto de bot para o marketing viral do jogo Wild Witch Project.
