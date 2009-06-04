@@ -1,15 +1,15 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-require 'twitter'
+require '/usr/lib/ruby/gems/1.8/gems/twitter-0.6.11/lib/twitter'
 
 # Nucledo de transmiss�o do bot
 
 
-puts "╔══╗\n"
-puts "║╔╗║\n"
-puts "║╚╝╠══╦╦══╦═╗\n"
-puts "║╔╗║╔╗║║║║║╩╣\n"
-puts "╚╝╚╩╝╚╩╩╩╩╩═╝ ○ ○ ○\n"
+#puts "╔══╗\n"
+#puts "║╔╗║\n"
+#puts "║╚╝╠══╦╦══╦═╗\n"
+#puts "║╔╗║╔╗║║║║║╩╣\n"
+#puts "╚╝╚╩╝╚╩╩╩╩╩═╝ ○ ○ ○\n"
 
 # exemplo de retorno
 #<Mash
