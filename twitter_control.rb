@@ -52,16 +52,30 @@ puts "╚╝╚╩╝╚╩╩╩╩╩═╝ ○ ○ ○\n"
 
 require File.expand_path(File.dirname(__FILE__)) + '/config'
 
+class TwitterControl
+	
+	@@httpauth = Twitter::HTTPAuth.new $tw_user, $tw_pass
+	@@base = Twitter::Base.new @@httpauth
 
-httpauth = Twitter::HTTPAuth.new $tw_user, $tw_pass
-base = Twitter::Base.new httpauth
-
-#base.update('Heeeeyyyyooo from the Twitter Gem')
-
-base.friends_timeline.each do |tweet|
-	if not tweet.user.id = $tw_id then
-		puts tweet.user.name
+	def postar mensagem
+		@@base.update mensagem
+		puts "Postado: " + mensagem
 	end
+	
+	#le os twitts
+	#todas = object -> indicado mostra at� as proprias mensagens
+	def lerMensagens todas=nil
+		@msgs = Array::new
+		@@base.friends_timeline.each do |@tweet|
+			if todas == nil then
+				if not @tweet.user.id = $tw_id then
+					@msgs.push @tweet
+				end
+			else
+				@msgs.push @tweet
+			end
+		end
+		return @msgs
+	end
+
 end
-
-
