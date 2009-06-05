@@ -34,9 +34,10 @@ class Bot
 	end
 	
 	#I.A. de nivel mais primitivo, sorteia chance de falar algon
-	#naquele horario em 25%
+	#naquele horario em x%
 	def faloAgora?
-		if (rand 4) == 0 then return true else return false end
+		@rnd = 100/12
+		if (rand @rnd.to_i) == 0 then return true else return false end
 	end
 	
 	def escreveRoteiro
