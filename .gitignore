@@ -13,6 +13,8 @@ doc
 target
 *.tmproj
 config.rb
+teste.rb
+teste.lua
 data
 examples/self_test/tmp
 .#*

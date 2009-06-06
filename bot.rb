@@ -36,7 +36,7 @@ class Bot
 	#I.A. de nivel mais primitivo, sorteia chance de falar algon
 	#naquele horario em x%
 	def faloAgora?
-		@rnd = 100/12
+		@rnd = 100/15
 		if (rand @rnd.to_i) == 0 then return true else return false end
 	end
 	
@@ -49,8 +49,8 @@ class Bot
 			@msg = nil
 		end
 		@@lastFrase = @@lastFrase + 1
-		if @@lastFrase>@@lins.length
-			@@lastFrase = @@lins.length
+		if @@lastFrase>@doc.linhas.length
+			@@lastFrase = @doc.linhas.length
 		end
 		return @msg
 	end
