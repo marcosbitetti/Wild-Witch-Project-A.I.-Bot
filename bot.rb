@@ -22,13 +22,19 @@ class Bot
 	@@lastUpdate = Time::parse(@data[0])
 	@@lastFrase = @data[1].to_i
 
+	#Inicialização, aqui esta o corpo do bot
 	def initialize
 		if self.faloAgora? then
-			@msg = self.escreveRoteiro 
-			if not @msg == nil 
-				self.updateData
-				@control = TwitterControl::new
-				@control.postar @msg.strip
+			begin
+				@msg = self.lerRoteiro 
+				if not @msg == nil 
+					self.updateData
+					@control = TwitterControl::new
+					@control.postar @msg.strip
+				end
+				self.log "Postado com sucesso: \"" + @msg.strip
+			rescue => @erro
+				self.log @erro
 			end
 		end
 	end
@@ -36,31 +42,51 @@ class Bot
 	#I.A. de nivel mais primitivo, sorteia chance de falar algon
 	#naquele horario em x%
 	def faloAgora?
+	return true
 		@rnd = 100/15
 		if (rand @rnd.to_i) == 0 then return true else return false end
 	end
 	
-	def escreveRoteiro
-		@doc= Roteiro.new
-		
-		if @@lastFrase < @doc.linhas.length then
-			@msg = @doc.linhas[@@lastFrase]
-		else
-			@msg = nil
+	#Chama o leitor de roteiro
+	def lerRoteiro
+		begin
+			@doc= Roteiro.new
+			
+			if @@lastFrase < @doc.linhas.length then
+				@msg = @doc.linhas[@@lastFrase]
+			else
+				@msg = nil
+				self.log "Final do script de roteiro"
+			end
+			@@lastFrase = @@lastFrase + 1
+			if @@lastFrase>@doc.linhas.length
+				@@lastFrase = @doc.linhas.length
+			end
+			return @msg
+		rescue => @erro
+			self.log @erro
 		end
-		@@lastFrase = @@lastFrase + 1
-		if @@lastFrase>@doc.linhas.length
-			@@lastFrase = @doc.linhas.length
-		end
-		return @msg
+		return nil
 	end
 	
+	#atualiza memoria
 	def updateData
 		@dt  = Time::new.to_s + "\n" #ultimo update
 		@dt += @@lastFrase = @@lastFrase.to_s + "\n" # ultima frase
 		File.open( @@path + "/data/memory","w" ) do |f|
 			f.print( @dt )
 		end
+	end
+	
+	#log do sistema
+	def log msg
+		if not msg == nil
+			@t = Time::new
+			puts "#{@t} -> #{msg}"
+			File.open( @@path + "/data/log", "a") do |f|
+				f.print "#{@t} -> #{msg}\n"
+			end
+		end	
 	end
 
 end
