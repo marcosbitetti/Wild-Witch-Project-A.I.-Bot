@@ -47,7 +47,7 @@ class Bot
 						@control.postar @msg.strip
 					end
 				end
-				self.log "Postado com sucesso: \"" + @msg.strip
+				self.log "Postado com sucesso: \"" + @msg.to_s.strip if @msg
 			rescue => @erro
 				self.log @erro
 			end
