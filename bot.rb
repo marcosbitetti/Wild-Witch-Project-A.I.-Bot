@@ -14,23 +14,38 @@ puts "(_____,/'(__(___,/(__(________(__(________"
 puts "                                          "
 puts "                                em acao..."
 
+#######
+#
+#  Bot
+#
+#######
+
 class Bot
+
+	# absolute path
 	@@path = File.expand_path(File.dirname(__FILE__));
-	@@lins = (IO.read(@@path+"/data/entradas.txt")).split "\n"
+	# deprecate: local entries data file
+	#@@lins = (IO.read(@@path+"/data/entradas.txt")).split "\n"
+	# current time
 	@@agora = Time::new
+	# local state-machine data file (temporary)
 	@data = (IO.read(@@path+"/data/memory")).split "\n"
 	@@lastUpdate = Time::parse(@data[0])
 	@@lastFrase = @data[1].to_i
 
+	##
 	#Inicialização, aqui esta o corpo do bot
+	##
 	def initialize
 		if self.faloAgora? then
 			begin
 				@msg = self.lerRoteiro 
 				if not @msg == nil 
 					self.updateData
-					@control = TwitterControl::new
-					@control.postar @msg.strip
+					if not $testMode then
+						@control = TwitterControl::new
+						@control.postar @msg.strip
+					end
 				end
 				self.log "Postado com sucesso: \"" + @msg.strip
 			rescue => @erro
@@ -39,15 +54,19 @@ class Bot
 		end
 	end
 	
+	##
 	#I.A. de nivel mais primitivo, sorteia chance de falar algon
 	#naquele horario em x%
+	##
 	def faloAgora?
-	return true
+		if $testMode then return true end
 		@rnd = 100/15
 		if (rand @rnd.to_i) == 0 then return true else return false end
 	end
 	
+	##
 	#Chama o leitor de roteiro
+	##
 	def lerRoteiro
 		begin
 			@doc= Roteiro.new
@@ -69,7 +88,9 @@ class Bot
 		return nil
 	end
 	
+	##
 	#atualiza memoria
+	##
 	def updateData
 		@dt  = Time::new.to_s + "\n" #ultimo update
 		@dt += @@lastFrase = @@lastFrase.to_s + "\n" # ultima frase
@@ -78,7 +99,9 @@ class Bot
 		end
 	end
 	
+	##
 	#log do sistema
+	##
 	def log msg
 		if not msg == nil
 			@t = Time::new
@@ -99,6 +122,7 @@ end
 #puts lins[0]
 #TODO: Criar classe Memoria para ela alembrar dq falow das ultimas vezes!
 
+#start the bot
 Bot.new
 
 
