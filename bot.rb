@@ -3,6 +3,7 @@ require "time"
 require File.expand_path(File.dirname(__FILE__)) + '/twitter_control'
 require File.expand_path(File.dirname(__FILE__)) + '/data/frases'
 require File.expand_path(File.dirname(__FILE__)) + '/roteiro'
+require File.expand_path(File.dirname(__FILE__)) + '/remoteconfig'
 
 puts "           _                             "
 puts "         /' `\       /'                /'"
@@ -38,6 +39,9 @@ class Bot
 	##
 	def initialize
 		if self.faloAgora? then
+			#obtem configurção adicional de origem remota
+			conf = RemoteConfig::new
+			#nucleo
 			begin
 				@msg = self.lerRoteiro 
 				if not @msg == nil 
