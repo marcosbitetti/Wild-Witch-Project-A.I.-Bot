@@ -38,9 +38,9 @@ class Bot
 	#Inicialização, aqui esta o corpo do bot
 	##
 	def initialize
+		#obtem configurção adicional de origem remota
+		@conf = RemoteConfig::new
 		if self.faloAgora? then
-			#obtem configurção adicional de origem remota
-			conf = RemoteConfig::new
 			#nucleo
 			begin
 				@msg = self.lerRoteiro 
