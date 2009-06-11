@@ -64,7 +64,7 @@ class Bot
 	##
 	def faloAgora?
 		if $testMode then return true end
-		@rnd = 100/$probabilidadeDePost.to_i
+		@rnd = 100/($probabilidadeDePost.to_i)
 		if (rand @rnd.to_i) == 0 then return true else return false end
 	end
 	
