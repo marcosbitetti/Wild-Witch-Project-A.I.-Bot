@@ -29,6 +29,7 @@ class RemoteConfig
 				@@lins.push [ @l[0].strip, @l[1].strip  ]
 				if not @l[0]== ""
 					eval("$"+@l[0].strip+"=\""+@l[1].strip+"\"")
+					puts @l[0].strip + " = " + @l[1].strip if $testMode == true
 				end
 			end
 		rescue => @erro
@@ -80,3 +81,4 @@ end
 
 #instancia a variavel de configuração
 #conf = RemoteConfig::new
+#puts $paused
