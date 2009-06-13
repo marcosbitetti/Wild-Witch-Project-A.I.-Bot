@@ -15,6 +15,8 @@ class RemoteConfig
 	#web
 	@@hostname = 'docs.google.com'
 	@@origin = '/View?id=dddvrrg4_22gxcgj8c7'
+	#@@hostname = 'localhost'
+	#@@origin = '/tmp/view_google.html'
 
 	###
 	#
@@ -32,6 +34,7 @@ class RemoteConfig
 					puts @l[0].strip + " = " + @l[1].strip if $testMode == true
 				end
 			end
+			self.manageGlobals
 		rescue => @erro
 			
 		end
@@ -76,9 +79,22 @@ class RemoteConfig
 		@@lins.each { |l| @ind.push l[0] }
 		return @ind
 	end
-
+	
+	##
+	# Arranjo das variaveis globais a serem modificadas
+	##
+	def manageGlobals
+		@@lins.each do |@l|
+			case @l[0]
+				when 'probabilidadeDePost'
+					$probabilidadeDePost = @l[1].to_i
+				when 'paused'
+					$paused = 'true' == @l[1]
+			end
+		end
+	end
 end
 
 #instancia a variavel de configuração
-#conf = RemoteConfig::new
-#puts $paused
+conf = RemoteConfig::new
+puts $paused

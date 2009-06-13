@@ -40,7 +40,7 @@ class Bot
 	def initialize
 		#obtem configurção adicional de origem remota
 		@conf = RemoteConfig::new
-		if self.faloAgora? then
+		if self.faloAgora? and not $paused then
 			#nucleo
 			begin
 				@msg = self.lerRoteiro 
