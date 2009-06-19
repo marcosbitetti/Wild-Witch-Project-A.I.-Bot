@@ -96,5 +96,5 @@ class RemoteConfig
 end
 
 #instancia a variavel de configuração
-conf = RemoteConfig::new
-puts $paused
+#conf = RemoteConfig::new
+#puts $paused
