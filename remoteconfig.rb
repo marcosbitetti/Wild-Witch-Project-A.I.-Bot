@@ -30,7 +30,7 @@ class RemoteConfig
 				@l = lin.split ":"
 				@@lins.push [ @l[0].strip, @l[1].strip  ]
 				if not @l[0]== ""
-					eval("$"+@l[0].strip+"=\""+@l[1].strip+"\"")
+					#eval("$"+@l[0].strip+"=\""+@l[1].strip+"\"")
 					puts @l[0].strip + " = " + @l[1].strip if $testMode == true
 				end
 			end
