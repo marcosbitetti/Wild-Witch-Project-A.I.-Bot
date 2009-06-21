@@ -33,6 +33,7 @@ class Tela
 				self.espera
 			when "3"
 				self.showLog
+				self.espera
 			when "4"
 				self.showRemotas
 				self.espera

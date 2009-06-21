@@ -59,12 +59,14 @@ class Bot
 	end
 	
 	##
-	#I.A. de nivel mais primitivo, sorteia chance de falar algon
+	#I.A. de nivel mais primitivo, sorteia chance de falar algo
 	#naquele horario em x%
 	##
 	def faloAgora?
 		if $testMode then return true end
-		return true if (rand 100 ) < ($probabilidadeDePost.to_i)
+		@targ = rand 100
+		return true if @targ < ($probabilidadeDePost.to_i)
+		self.log( "Teste: " + @targ.to_s + "/" + $probabilidadeDePost.to_s + " : sem reação" ) if $logEntradasNegativas
 		return false
 	end
 	
