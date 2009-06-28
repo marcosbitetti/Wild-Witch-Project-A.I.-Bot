@@ -5,13 +5,17 @@ require File.expand_path(File.dirname(__FILE__)) + '/remoteconfig'
 class Tela
 	@@check = Checagem::new
 	@@path = File.expand_path(File.dirname(__FILE__))
-
+	@@loop = true
+	
 	def initialize
-		self.principal
+		if ARGV[0]=='get' then
+			self.select ARGV[1]
+		else
+			self.principal
+		end
 	end
 	
 	def principal
-		@loop = true
 		system "clear"
 		@esp = "\t\t"
 		puts @esp + "1. verificar por erros em novas mensagens"
@@ -24,27 +28,27 @@ class Tela
 		
 		@s = gets.strip
 		puts "Trabalhando..."
-		case @s
+		self.select @s
+		self.espera if not @s == 'x'
+		
+		self.principal if @@loop
+	end
+	
+	def select op
+		case op
 			when "1"
 				@@check.checkNovasMensagens
-				self.espera
 			when "2"
 				@@check.checkPosts
-				self.espera
 			when "3"
 				self.showLog
-				self.espera
 			when "4"
 				self.showRemotas
-				self.espera
 			when "5"
 				self.showMemory
-				self.espera
 			when "x"
-				@loop = false
+				@@loop = false
 		end
-		
-		self.principal if @loop
 	end
 	
 	def espera

@@ -16,3 +16,8 @@ Manual Install notes:
 	4.2 Change lines to you configuration
 5. Make CRON jobs in system to run /absolutepath/../bot.sh
 6. Enjoy
+
+Extra installation: Graphic Interface Terminal
+1. First install Shoes: http://shoooes.net/
+2. Grant permissions to execute terminal.sh (ex.: chmod -x terminal.sh )
+3. Double Click and enjoy
