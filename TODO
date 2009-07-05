@@ -1,0 +1,4 @@
+﻿TODO:
+#	Muitas classes ja esto usando conexo remota, passar a implementar
+	objeto de acesso e usar herana. Facilitando por exemplo a
+	configurao de proxy

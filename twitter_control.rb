@@ -52,18 +52,33 @@ require '/usr/lib/ruby/gems/1.8/gems/twitter-0.6.11/lib/twitter'
 
 require File.expand_path(File.dirname(__FILE__)) + '/config'
 
+
+#######
+#
+#  TwitterControl
+#	Interface para a API do Twitter
+#	as variáveis globais $tw_user e $tw_pass deven estar setadas
+#	ou a API retorna erro
+#
+#######
+
 class TwitterControl
 	
 	@@httpauth = Twitter::HTTPAuth.new $tw_user, $tw_pass
 	@@base = Twitter::Base.new @@httpauth
 
+	##
+	# Posta uma mensagem
+	##
 	def postar mensagem
 		@@base.update mensagem
 		puts "Postado: " + mensagem
 	end
 	
-	#le os twitts
-	#todas = object -> indicado mostra até as proprias mensagens
+	##
+	# Le os twitts
+	# 	todas = object -> indicado mostra até as proprias mensagens
+	##
 	def lerMensagens todas=nil
 		@msgs = Array::new
 		@@base.friends_timeline.each do |@tweet|

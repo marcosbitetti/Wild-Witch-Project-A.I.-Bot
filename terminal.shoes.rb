@@ -1,7 +1,19 @@
-
+﻿
 $WIDTH = 1000
 $HEIGHT = 560
 
+#######
+#
+# Terminal Gráfico
+#	Esta classe de terceiros foi implementada para servir de
+#	terminal gráfico para o sistema.
+#	Apresenta as mesmas opções disponíveis em terminal.rb
+#	Apenas difere por estar em modo gráfico.
+#	Toda a interface é definida no construtur da classe Shoes.
+#	E usa a interface do sistema operacional para retornar valores.
+#	Para informações dos métodos verificar a biblioteca do Shoes.
+#
+#######
 Shoes.app (
 	:title => "Terminal Wild Witch",
 	:width => $WIDTH, :height => $HEIGHT,
