@@ -2,14 +2,14 @@
 require 'rubygems'
 require '/usr/lib/ruby/gems/1.8/gems/twitter-0.6.11/lib/twitter'
 
-# Nucledo de transmiss�o do bot
+# Nucledo de transmissão do bot
 
 
-#puts "╔══╗\n"
-#puts "║╔╗║\n"
-#puts "║╚╝╠══╦╦══╦═╗\n"
-#puts "║╔╗║╔╗║║║║║╩╣\n"
-#puts "╚╝╚╩╝╚╩╩╩╩╩═╝ ○ ○ ○\n"
+#puts "â•”â•â•â•—\n"
+#puts "â•‘â•”â•—â•‘\n"
+#puts "â•‘â•šâ•â• â•â•â•¦â•¦â•â•â•¦â•â•—\n"
+#puts "â•‘â•”â•—â•‘â•”â•—â•‘â•‘â•‘â•‘â•‘â•©â•£\n"
+#puts "â•šâ•â•šâ•©â•â•šâ•©â•©â•©â•©â•©â•â• â—‹ â—‹ â—‹\n"
 
 # exemplo de retorno
 #<Mash
@@ -57,7 +57,7 @@ require File.expand_path(File.dirname(__FILE__)) + '/config'
 #
 #  TwitterControl
 #	Interface para a API do Twitter
-#	as vari�veis globais $tw_user e $tw_pass deven estar setadas
+#	as variáveis globais $tw_user e $tw_pass deven estar setadas
 #	ou a API retorna erro
 #
 #######
@@ -77,7 +77,7 @@ class TwitterControl
 	
 	##
 	# Le os twitts
-	# 	todas = object -> indicado mostra at� as proprias mensagens
+	# 	todas = object -> indicado mostra até as proprias mensagens
 	##
 	def lerMensagens todas=nil
 		@msgs = Array::new

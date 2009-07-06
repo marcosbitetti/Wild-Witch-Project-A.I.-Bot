@@ -1,4 +1,4 @@
-﻿$path = File.expand_path(File.dirname(__FILE__))
+$path = File.expand_path(File.dirname(__FILE__))
 
 require $path + "/twitter_control"
 require $path + "/roteiro"

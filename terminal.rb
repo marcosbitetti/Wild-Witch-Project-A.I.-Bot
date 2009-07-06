@@ -1,4 +1,4 @@
-﻿require 'rubygems'
+require 'rubygems'
 require File.expand_path(File.dirname(__FILE__)) + '/check'
 require File.expand_path(File.dirname(__FILE__)) + '/remoteconfig'
 

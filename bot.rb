@@ -35,10 +35,10 @@ class Bot
 	@@lastFrase = @data[1].to_i
 
 	##
-	#Inicialização, aqui esta o corpo do bot
+	#InicializaÃ§Ã£o, aqui esta o corpo do bot
 	##
 	def initialize
-		#obtem configurção adicional de origem remota
+		#obtem configurÃ§Ã£o adicional de origem remota
 		@conf = RemoteConfig::new
 		if self.faloAgora? and not $paused then
 			#nucleo
@@ -66,7 +66,7 @@ class Bot
 		if $testMode then return true end
 		@targ = rand 100
 		return true if @targ < ($probabilidadeDePost.to_i)
-		self.log( "Teste: " + @targ.to_s + "/" + $probabilidadeDePost.to_s + " : sem reação" ) if $logEntradasNegativas
+		self.log( "Teste: " + @targ.to_s + "/" + $probabilidadeDePost.to_s + " : sem reaÃ§Ã£o" ) if $logEntradasNegativas
 		return false
 	end
 	
