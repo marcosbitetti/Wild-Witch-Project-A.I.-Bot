@@ -1,15 +1,10 @@
 #!/usr/bin/env ruby
 require 'rubygems'
-require '/usr/lib/ruby/gems/1.8/gems/twitter-0.6.11/lib/twitter'
+#require '/usr/lib/ruby/gems/1.8/gems/twitter-0.6.11/lib/twitter'
+require 'twitter'
 
 # Nucledo de transmissão do bot
 
-
-#puts "â•”â•â•â•—\n"
-#puts "â•‘â•”â•—â•‘\n"
-#puts "â•‘â•šâ•â• â•â•â•¦â•¦â•â•â•¦â•â•—\n"
-#puts "â•‘â•”â•—â•‘â•”â•—â•‘â•‘â•‘â•‘â•‘â•©â•£\n"
-#puts "â•šâ•â•šâ•©â•â•šâ•©â•©â•©â•©â•©â•â• â—‹ â—‹ â—‹\n"
 
 # exemplo de retorno
 #<Mash

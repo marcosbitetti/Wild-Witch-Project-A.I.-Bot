@@ -1,19 +1,21 @@
 Wild Witch Poject
 Bot for viral network
 
+Automatic installation (experimental)
+=====================================
+
+
 
 Manual Install notes:
 =====================
 1. Check path in file bot.sh to absolute path to bot.rb script
 2. Grant permissions to execute bot.sh (ex.: chmod -x bot.sh)
-3. Make dir data
-	3.1 in dir data make file "memory"
-	3.2 Grant permissions to "read and write" to he
-	3.3 in some dir (data), make file "log"
-	3.2 Grant permissions to "read and write" to he
+3. Rename folder "data.template" to "data"
+	3.1 Grant permissions to "read and write" to arquive data/memory
+	3.2 Grant permissions to "read and write" to arquive data/he
 4. Change config.template.rb
 	4.1 Change name to config.rb
-	4.2 Change lines to you configuration
+	4.2 Change lines to you configuration, see coment lines in the arquive
 5. Make CRON jobs in system to run /absolutepath/../bot.sh
 6. Enjoy
 

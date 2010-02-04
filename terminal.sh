@@ -2,4 +2,4 @@
 
 #requer Shoes ->  http://shoooes.net/
 
-shoes2.run terminal.rb
+shoes2.run terminal.shoes.rb
