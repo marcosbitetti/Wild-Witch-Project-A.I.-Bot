@@ -33,7 +33,7 @@ class GConnector
 			@headers, @html = @http.get( @origin )
 			puts " pronto."
 			@htm = @html.scan( /\<div id=\"doc-contents\"\>.*\<br clear=\"all\"/mi ).to_s
-			@linhas = @htm[23,@htm.length].to_s.split "<br>"
+			@linhas = @htm[23,@htm.length].gsub( /\<div\>/i, "\n" ).gsub( /\<\/div\>/i, "\n" ).gsub( /\<br.*\/\>/i, "\n" ).gsub( /^\n/i, "" ).to_s.split "<br>"
 			@linhas.pop
 			@linhas.each { |l| l = l.strip }
 			

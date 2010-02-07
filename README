@@ -23,3 +23,8 @@ Extra installation: Graphic Interface Terminal
 1. First install Shoes: http://shoooes.net/
 2. Grant permissions to execute terminal.sh (ex.: chmod -x terminal.sh )
 3. Double Click and enjoy
+
+Troubleshoting
+==============
+For Ubuntu and Debian users, nice tick:
+	https://help.ubuntu.com/community/RubyOnRails
