@@ -1,4 +1,6 @@
+require "rubygems"
 require "time"
+require "htmlentities"
 
 require File.expand_path(File.dirname(__FILE__)) + '/twitter_control'
 require File.expand_path(File.dirname(__FILE__)) + '/data/frases'
@@ -51,7 +53,8 @@ class Bot
 						@control.postar @msg.strip
 					end
 				end
-				self.log "Postado com sucesso: \"" + @msg.to_s.strip if @msg
+				#self.log "Postado com sucesso: \"" + @msg.to_s.strip if @msg
+				self.log "Postado com sucesso: \"" + @msg
 			rescue => @erro
 				self.log @erro
 			end
@@ -74,6 +77,7 @@ class Bot
 	#Chama o leitor de roteiro
 	##
 	def lerRoteiro
+		@coder = HTMLEntities.new
 		begin
 			@doc= Roteiro.new
 			
@@ -87,7 +91,7 @@ class Bot
 			if @@lastFrase>@doc.linhas.length
 				@@lastFrase = @doc.linhas.length
 			end
-			return @msg
+			return  @coder.decode(@msg)
 		rescue => @erro
 			self.log @erro
 		end
